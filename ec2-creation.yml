@@ -42,9 +42,9 @@
          group: Spider_tutorial_Security_group
       register: ec2_out
     - name: Install Apache Webserver
-      apt-get: name=httpd state=installed
-#      notify:
-#      - restart apache
+      apt: name=httpd state=installed
+      notify:
+      - restart apache
     - name: Ensure apache is running and enabled it under boot
       service: name=httpd state=restarted enabled=yes
 
