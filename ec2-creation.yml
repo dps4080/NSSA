@@ -41,6 +41,18 @@
          assign_public_ip: yes
          group: Spider_tutorial_Security_group
       register: ec2_out
+    - name: Install Apache Webserver
+      yum: name=httpd state=installed
+      notify:
+      - restart apache
+    - name: Ensure apache is running and enabled it under boot
+      service: name=httpd state=restarted enabled=yes
+
+
+
+
+
+
 
 #    - name: Wait for ssh to come up
 #      wait_for: host={{ item.public_dns_name }} port=22 delay=60 timeout=320 state=started
