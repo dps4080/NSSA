@@ -44,7 +44,7 @@
     - name: Install Apache Webserver
       apt: name=apache2 state=installed
       notify:
-      - restart apache
+      - restart apache2
     - name: Ensure apache is running and enabled it under boot
       service: name=httpd state=restarted enabled=yes
 
