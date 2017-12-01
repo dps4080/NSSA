@@ -7,23 +7,23 @@
 
   tasks:
 
-    - name: Setting up Security/Firewall group
-      ec2_group:
-         name: Spider_tutorial_Security_group
-         description: Rules allowing traffic on port 22 and 80
-         region: us-west-2
-         rules:
-          - proto: tcp
-            from_port: 80
-            to_port: 80
-            cidr_ip: 0.0.0.0/0
-          - proto: tcp
-            from_port: 22
-            to_port: 22
-            cidr_ip: 0.0.0.0/0
-         rules_egress: 
-          - proto: all
-            cidr_ip: 0.0.0.0/0
+#    - name: Setting up Security/Firewall group
+#      ec2_group:
+#         name: Spider_tutorial_Security_group
+#         description: Rules allowing traffic on port 22 and 80
+#         region: us-west-2
+#         rules:
+#          - proto: tcp
+#            from_port: 80
+#            to_port: 80
+#            cidr_ip: 0.0.0.0/0
+#          - proto: tcp
+#            from_port: 22
+#            to_port: 22
+#            cidr_ip: 0.0.0.0/0
+#         rules_egress: 
+#          - proto: all
+#            cidr_ip: 0.0.0.0/0
     - name: Provision an EC2 Insatance
       ec2:
          key_name: darshanaws
@@ -39,7 +39,7 @@
          monitoring: no
          vpc_subnet_id: subnet-04eb6363
          assign_public_ip: yes
-         group: Spider_tutorial_Security_group
+ #        group: Spider_tutorial_Security_group
       register: ec2_out
 
     - name: Wait for ssh to come up
