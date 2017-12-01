@@ -46,7 +46,7 @@
       notify:
       - restart apache2
     - name: Ensure apache is running and enabled it under boot
-      service: name=httpd state=restarted enabled=yes
+      service: name=apache2 state=restarted enabled=yes
 
 
 
